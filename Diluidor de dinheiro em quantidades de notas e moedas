@@ -1,0 +1,65 @@
+#include <stdio.h>
+
+int main() {
+    double i;
+    int cem, cinquenta, vinte, dez, cinco, dois, um;
+    int cin, vint, dezc, cinc, cent;
+    
+    scanf("%lf", &i);
+
+    cem = i / 100;
+    i = i - (cem * 100);
+    
+    cinquenta = i / 50;
+    i = i - (cinquenta * 50);
+    
+    vinte = i / 20;
+    i = i - (vinte * 20);
+    
+    dez = i / 10;
+    i = i - (dez * 10);
+    
+    cinco = i / 5;
+    i = i - (cinco * 5);
+    
+    dois = i / 2;
+    i = i - (dois * 2);
+    
+    um = i / 1;
+    i = i - (um * 1);
+    
+    
+    i = i * 100;  
+
+    cin = i / 50;
+    i = i - (cin * 50);
+
+    vint = i / 25;
+    i = i - (vint * 25);
+
+    dezc = i / 10;
+    i = i - (dezc * 10);
+
+    cinc = i / 5;
+    i = i - (cinc * 5);
+
+    cent = i / 1;
+
+    printf("NOTAS:\n");
+    printf("%d nota(s) de R$ 100.00\n", cem);
+    printf("%d nota(s) de R$ 50.00\n", cinquenta);
+    printf("%d nota(s) de R$ 20.00\n", vinte);
+    printf("%d nota(s) de R$ 10.00\n", dez);
+    printf("%d nota(s) de R$ 5.00\n", cinco);
+    printf("%d nota(s) de R$ 2.00\n", dois);
+
+    printf("MOEDAS:\n");
+    printf("%d moeda(s) de R$ 1.00\n", um);
+    printf("%d moeda(s) de R$ 0.50\n", cin);
+    printf("%d moeda(s) de R$ 0.25\n", vint);
+    printf("%d moeda(s) de R$ 0.10\n", dezc);
+    printf("%d moeda(s) de R$ 0.05\n", cinc);
+    printf("%d moeda(s) de R$ 0.01\n", cent);
+
+    return 0;
+}
