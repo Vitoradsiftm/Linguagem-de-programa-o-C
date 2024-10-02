@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    double nota1, nota2;
+    int contador = 0;
+    double nota;
+
+    while (contador < 2) {
+        scanf("%lf", &nota);
+
+        if (nota >= 0.0 && nota <= 10.0) {
+            if (contador == 0) {
+                nota1 = nota;
+            } else {
+                nota2 = nota;
+            }
+            contador++;
+        } else {
+            printf("nota invalida\n");
+        }
+    }
+
+    printf("media = %.2lf\n", (nota1 + nota2) / 2.0);
+
+    return 0;
+}
