@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    int N, i, teste = 1;
+
+    while (1) {
+        scanf("%d", &N);  // Lê o número de participantes
+        if (N == 0) break;  // Encerra se N for 0
+
+        int ingressos[N];
+        int ganhador = -1;  // Inicializa o ganhador
+
+        // Lê os números dos ingressos
+        for (i = 0; i < N; i++) {
+            scanf("%d", &ingressos[i]);
+            if (ingressos[i] == i + 1) {
+                ganhador = ingressos[i];  // Encontra o ingresso premiado
+            }
+        }
+
+        // Imprime o resultado
+        printf("Teste %d\n", teste);
+        printf("%d\n\n", ganhador);
+        teste++;  // Incrementa o número do teste
+    }
+
+    return 0;
+}
