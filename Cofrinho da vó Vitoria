@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main() {
+    int n, teste = 0;
+    
+    while (scanf("%d", &n), n != 0) {
+        int saldo = 0;
+        printf("Teste %d\n", ++teste);
+        
+        for (int i = 0; i < n; ++i) {
+            int J, Z;
+            scanf("%d %d", &J, &Z);
+            saldo += J - Z;
+            printf("%d\n", saldo);
+        }
+        
+        printf("\n");
+    }
+    
+    return 0;
+}
