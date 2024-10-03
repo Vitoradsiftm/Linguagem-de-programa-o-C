@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    
+    // Loop para processar vários casos de teste
+    while (1) {
+        scanf("%d", &N); // Lê o número de comandos
+        if (N == 0) break; // Termina se N for 0
+        
+        char comandos[N];
+        scanf("%s", comandos); // Lê a sequência de comandos
+
+        // Inicializa a direção (0 - Norte, 1 - Leste, 2 - Sul, 3 - Oeste)
+        int direcao = 0;
+
+        // Processa cada comando
+        for (int i = 0; i < N; i++) {
+            if (comandos[i] == 'E') {
+                direcao = (direcao + 3) % 4; // Vira à esquerda
+            } else if (comandos[i] == 'D') {
+                direcao = (direcao + 1) % 4; // Vira à direita
+            }
+        }
+
+        // Imprime a direção final
+        if (direcao == 0) {
+            printf("N\n");
+        } else if (direcao == 1) {
+            printf("L\n");
+        } else if (direcao == 2) {
+            printf("S\n");
+        } else if (direcao == 3) {
+            printf("O\n");
+        }
+    }
+
+    return 0;
+}
