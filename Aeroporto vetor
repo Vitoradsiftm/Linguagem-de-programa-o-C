@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <string.h>
+
+#define true 1
+#define false 0
+#define MAXSIZE 105
+#define INF 0x3f3f3f3f
+
+int voos[MAXSIZE];
+
+int main() {
+
+    int i;
+    int x, y;
+    int n, m, teste = 0;
+
+    // Laço para ler múltiplos casos de teste
+    while (scanf("%d %d", &n, &m), m && n) {
+
+        // Incrementa os voos para cada par lido
+        for (i = 0; i < m; ++i) {
+            scanf("%d %d", &x, &y);
+            voos[x]++;
+            voos[y]++;
+        }
+
+        int maior = -INF;
+
+        printf("Teste %d\n", ++teste);
+
+        // Encontrar o maior número de voos
+        for (i = 1; i <= n; ++i) {
+            if (voos[i] > maior) {
+                maior = voos[i];
+            }
+        }
+
+        // Imprimir os aeroportos que possuem o maior número de voos
+        for (i = 1; i <= n; ++i) {
+            if (voos[i] == maior) {
+                printf("%d ", i);
+            }
+        }
+
+        printf("\n\n");
+
+        // Resetar o array para o próximo caso de teste
+        memset(voos, 0, sizeof(voos));
+    }
+
+    return 0;
+}
