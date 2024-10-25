@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() {
+    int k, n, m, x, y, i;
+
+    // Lê o primeiro valor de K
+    scanf("%d", &k);
+    
+    while (k != 0) {
+        // Lê as coordenadas do ponto divisor (N, M)
+        scanf("%d %d", &n, &m);
+
+        // Processa cada consulta
+        for (i = 0; i < k; i++) {
+            // Lê as coordenadas da residência (X, Y)
+            scanf("%d %d", &x, &y);
+
+            // Verifica se a residência está na divisa
+            if (x == n || y == m) {
+                printf("divisa\n");
+            }
+            // Verifica o quadrante da residência
+            else if (x > n && y > m) {
+                printf("NE\n"); // Nordeste
+            }
+            else if (x < n && y > m) {
+                printf("NO\n"); // Noroeste
+            }
+            else if (x > n && y < m) {
+                printf("SE\n"); // Sudeste
+            }
+            else if (x < n && y < m) {
+                printf("SO\n"); // Sudoeste
+            }
+        }
+
+        // Lê o próximo valor de K para verificar se o loop continua
+        scanf("%d", &k);
+    }
+
+    return 0;
+}
