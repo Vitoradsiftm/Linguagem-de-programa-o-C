@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main()
+{
+    int L, R;
+    
+    for (;;) { // Loop infinito que será interrompido pela condição de parada
+        scanf("%d %d", &L, &R);
+        
+        // Condição de parada
+        if (L == 0 && R == 0) {
+            break;
+        }
+        
+        // Calcula e imprime a soma
+        printf("%d\n", L + R);
+    }
+
+    return 0;
+}
