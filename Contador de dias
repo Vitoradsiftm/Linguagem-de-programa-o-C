@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int ehBissexto(int ano) {
+    return (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0);
+}
+
+int diasNoMes(int ano, int mes) {
+    int diasPorMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (mes == 2 && ehBissexto(ano)) {
+        return 29;
+    }
+    return diasPorMes[mes - 1];
+}
+
+int calcularDiasDesde1970(int ano, int mes, int dia) {
+    int dias = 0;
+
+    // Soma os dias dos anos completos desde 1970 até o ano anterior
+    for (int a = 1970; a < ano; a++) {
+        dias += ehBissexto(a) ? 366 : 365;
+    }
+
+    // Soma os dias dos meses completos do ano atual
+    for (int m = 1; m < mes; m++) {
+        dias += diasNoMes(ano, m);
+    }
+
+    // Soma os dias do mês atual
+    dias += dia;
+
+    return dias;
+}
+
+int main() {
+    int N;
+    scanf("%d", &N);
+
+    for (int i = 0; i < N; i++) {
+        int ano1, mes1, dia1;
+        int ano2, mes2, dia2;
+
+        // Leitura das datas
+        scanf("%d-%d-%d %d-%d-%d", &ano1, &mes1, &dia1, &ano2, &mes2, &dia2);
+
+        // Calcula o número de dias desde 1970 para cada data
+        int dias1 = calcularDiasDesde1970(ano1, mes1, dia1);
+        int dias2 = calcularDiasDesde1970(ano2, mes2, dia2);
+
+        // Calcula a diferença absoluta
+        int diferencaDias = abs(dias1 - dias2);
+
+        // Exibe o resultado
+        printf("%d\n", diferencaDias);
+    }
+
+    return 0;
+}
