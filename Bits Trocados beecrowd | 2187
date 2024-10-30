@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main() {
+    int V, testeNumero = 1;
+
+    while (1) {
+        scanf("%d", &V);
+
+        // Verifica a condição de parada
+        if (V == 0)
+            break;
+
+        // Calcula o número de notas de cada valor
+        int notas50 = V / 50;
+        V %= 50;
+
+        int notas10 = V / 10;
+        V %= 10;
+
+        int notas5 = V / 5;
+        V %= 5;
+
+        int notas1 = V;
+
+        // Imprime o resultado para o conjunto de teste atual
+        printf("Teste %d\n", testeNumero);
+        printf("%d %d %d %d\n", notas50, notas10, notas5, notas1);
+        printf("\n");
+
+        testeNumero++;
+    }
+
+    return 0;
+}
