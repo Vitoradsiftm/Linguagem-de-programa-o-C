@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    int C, P, F;
+
+    // Lê os valores de entrada
+    scanf("%d %d %d", &C, &P, &F);
+
+    // Calcula o número total de folhas necessárias
+    int total_necessario = C * F;
+
+    // Verifica se a quantidade comprada é suficiente
+    if (P >= total_necessario) {
+        printf("S\n");  // Suficiente
+    } else {
+        printf("N\n");  // Não suficiente
+    }
+
+    return 0;
+}
