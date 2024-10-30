@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int A, B;
+
+    // Leitura dos valores inteiros A e B
+    scanf("%d %d", &A, &B);
+
+    // Verifica se A é múltiplo de B ou se B é múltiplo de A
+    if (A % B == 0 || B % A == 0) {
+        printf("Sao Multiplos\n");
+    } else {
+        printf("Nao sao Multiplos\n");
+    }
+
+    return 0;
+}
