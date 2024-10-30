@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int main() {
+    int A, V, X, Y;
+    int testeNumero = 1;
+
+    while (1) {
+        // Lê o número de aeroportos e voos
+        scanf("%d %d", &A, &V);
+        
+        // Condição de parada
+        if (A == 0 && V == 0)
+            break;
+        
+        
+        int trafego[101] = {0};  // O índice vai de 1 até A (máximo 100 aeroportos)
+
+        
+        for (int i = 0; i < V; i++) {
+            scanf("%d %d", &X, &Y);
+            trafego[X]++;
+            trafego[Y]++;
+        }
+
+        
+        int maxTrafego = 0;
+        for (int i = 1; i <= A; i++) {
+            if (trafego[i] > maxTrafego) {
+                maxTrafego = trafego[i];
+            }
+        }
+
+        
+        printf("Teste %d\n", testeNumero++);
+        
+        
+        for (int i = 1; i <= A; i++) {
+            if (trafego[i] == maxTrafego) {
+                printf("%d ", i);
+            }
+        }
+        printf("\n\n");
+    }
+
+    return 0;
+}
