@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    
+    // Lê até o final do arquivo
+    while (scanf("%d", &n) != EOF) {
+        int votos[n];
+        int votos_favoraveis = 0;
+
+        // Lê os votos dos jogadores
+        for (int i = 0; i < n; i++) {
+            scanf("%d", &votos[i]);
+            // Conta os votos favoráveis ao impeachment
+            if (votos[i] == 1) {
+                votos_favoraveis++;
+            }
+        }
+
+        // Calcula o número mínimo de votos para o impeachment
+        int votos_minimos = (2 * n + 2) / 3; // (2/3) * n arredondado para cima
+
+        // Verifica se o impeachment deve ocorrer
+        if (votos_favoraveis >= votos_minimos) {
+            printf("impeachment\n");
+        } else {
+            printf("acusacao arquivada\n");
+        }
+    }
+
+    return 0;
+}
