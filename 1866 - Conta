@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    int C; // Número de casos de teste
+    scanf("%d", &C); // Lê o número de casos de teste
+
+    while (C--) { // Enquanto houver casos de teste
+        int N; // Número de termos
+        scanf("%d", &N); // Lê o número de termos
+
+        // Calcula o resultado do somatório
+        int resultado = (N % 2 == 0) ? 0 : 1; // Se N for par, o resultado é 0; se ímpar, é 1
+
+        printf("%d\n", resultado); // Imprime o resultado
+    }
+
+    return 0;
+}
