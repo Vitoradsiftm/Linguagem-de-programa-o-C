@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int N, contador_a = 0, tamanho_sequencia = 1;
+    char s[100001]; // máximo de 100.000 caracteres, conforme o limite
+
+    // Lê o valor de N e a string s
+    scanf("%d", &N);
+    scanf("%s", s);
+
+    // Percorre a string a partir do segundo caractere
+    for (int i = 1; i < N; i++) {
+        if (s[i] == s[i - 1]) {
+            tamanho_sequencia++; // Incrementa o tamanho do trecho monótono
+        } else {
+            // Verifica se o trecho anterior é um trecho maximal não-trivial de 'a's
+            if (s[i - 1] == 'a' && tamanho_sequencia >= 2) {
+                contador_a += tamanho_sequencia;
+            }
+            tamanho_sequencia = 1; // Reinicia o tamanho para o próximo trecho
+        }
+    }
+
+    // Verifica o último trecho da string
+    if (s[N - 1] == 'a' && tamanho_sequencia >= 2) {
+        contador_a += tamanho_sequencia;
+    }
+
+    // Exibe o resultado
+    printf("%d\n", contador_a);
+
+    return 0;
+}
