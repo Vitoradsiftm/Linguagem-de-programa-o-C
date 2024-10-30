@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    int N, votos_carlos, votos_candidato;
+    int eleito = 1; // Assume que Carlos é eleito inicialmente (1 para sim, 0 para não)
+    
+    // Lê o número de candidatos
+    scanf("%d", &N);
+    
+    // Lê o número de votos do primeiro candidato (Carlos)
+    scanf("%d", &votos_carlos);
+    
+    // Para cada um dos outros candidatos, verificamos se têm mais votos que Carlos
+    for (int i = 1; i < N; i++) {
+        scanf("%d", &votos_candidato);
+        
+        // Se qualquer outro candidato tem mais votos que Carlos, ele não é eleito
+        if (votos_candidato > votos_carlos) {
+            eleito = 0;
+            break;
+        }
+    }
+    
+    // Imprime 'S' se Carlos foi eleito e 'N' caso contrário
+    if (eleito)
+        printf("S\n");
+    else
+        printf("N\n");
+    
+    return 0;
+}
