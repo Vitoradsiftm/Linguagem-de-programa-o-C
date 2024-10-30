@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    int notas[] = {2, 5, 10, 20, 50, 100}; // Notas disponíveis
+    int n, m; // N: valor da compra, M: valor pago
+
+    while (1) {
+        // Lê os valores de N e M
+        scanf("%d %d", &n, &m);
+        if (n == 0 && m == 0) {
+            break; // Finaliza se ambos forem zero
+        }
+
+        int troco = m - n; // Calcula o troco
+        int possible = 0; // Variável para indicar se é possível ou não
+
+        // Verifica todas as combinações de notas
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) { // Permitir que i e j sejam iguais
+                if (notas[i] + notas[j] == troco) {
+                    possible = 1; // Encontra uma combinação que funciona
+                    break;
+                }
+            }
+            if (possible) {
+                break; // Sai do loop se já encontrou uma solução
+            }
+        }
+
+        // Imprime o resultado
+        if (possible) {
+            printf("possible\n");
+        } else {
+            printf("impossible\n");
+        }
+    }
+
+    return 0;
+}
