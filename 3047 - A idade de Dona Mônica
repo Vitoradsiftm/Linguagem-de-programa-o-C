@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int M;  // Idade de Dona Mônica
+    int A;  // Idade do primeiro filho
+    int B;  // Idade do segundo filho
+
+    // Lê a idade de Dona Mônica
+    scanf("%d", &M);
+    // Lê a idade do primeiro filho
+    scanf("%d", &A);
+    // Lê a idade do segundo filho
+    scanf("%d", &B);
+
+    // Calcula a idade do terceiro filho
+    int C = M - (A + B);
+
+    // Encontra a idade do filho mais velho
+    int mais_velho = A > B ? (A > C ? A : C) : (B > C ? B : C);
+
+    // Imprime a idade do filho mais velho
+    printf("%d\n", mais_velho);
+
+    return 0;
+}
