@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int gerar_iccanobif(int n, int sequencia[]) {
+    // Inicializa os dois últimos termos da sequência
+    sequencia[n - 1] = 1; // Último termo
+    sequencia[n - 2] = 1; // Penúltimo termo
+
+    // Preenche os outros termos da sequência
+    for (int i = n - 3; i >= 0; i--) {
+        sequencia[i] = sequencia[i + 1] + sequencia[i + 2]; // soma dos dois próximos
+    }
+
+    return 0; // Retorna 0 para indicar que a função foi executada com sucesso
+}
+
+int main() {
+    int n;
+    
+    // Leitura do tamanho da sequência
+    scanf("%d", &n);
+    
+    int sequencia[40]; // Array para armazenar os termos da sequência, N <= 40
+    
+    // Gera a sequência de Iccanobif
+    gerar_iccanobif(n, sequencia);
+    
+    // Imprime a sequência
+    for (int i = 0; i < n; i++) {
+        printf("%d", sequencia[i]);
+        if (i < n - 1) {
+            printf(" "); // Espaço entre os números
+        }
+    }
+    printf("\n"); // Nova linha após a sequência
+    
+    return 0; // Retorna 0 para indicar que o programa terminou com sucesso
+}
