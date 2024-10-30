@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int V, N;
+    scanf("%d %d", &V, &N);
+
+    int total = V * N;
+    
+    // Para cada porcentagem de 10% a 90%, calcula e imprime o número de placas necessárias
+    for (int i = 1; i <= 9; i++) {
+        int placas = (int) ceil(total * i / 10.0);
+        printf("%d", placas);
+        
+        if (i < 9) {
+            printf(" ");
+        }
+    }
+    
+    printf("\n");
+    
+    return 0;
+}
