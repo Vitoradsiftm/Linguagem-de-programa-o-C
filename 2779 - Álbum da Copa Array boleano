@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+int main() {
+    int N, M, X;
+    
+    // Lê o número total de figurinhas e o número de figurinhas compradas
+    scanf("%d %d", &N, &M);
+    
+    // Declara um array de booleanos para armazenar figurinhas já compradas
+    bool figurinhas_compradas[101] = { false };
+    
+    // Lê as figurinhas compradas e marca no array
+    for (int i = 0; i < M; i++) {
+        scanf("%d", &X);
+        figurinhas_compradas[X] = true;
+    }
+    
+    // Conta quantas figurinhas ainda faltam para completar o álbum
+    int faltam = 0;
+    for (int i = 1; i <= N; i++) {
+        if (!figurinhas_compradas[i]) {
+            faltam++;
+        }
+    }
+    
+    // Imprime o número de figurinhas que faltam
+    printf("%d\n", faltam);
+    
+    return 0;
+}
